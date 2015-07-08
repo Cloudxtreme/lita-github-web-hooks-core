@@ -1,0 +1,5 @@
+[<%= @context %>] Status of commit <%= @sha %> to <%= @repo %>: <%= @status %>
+<% if !@description.nil? %>
+
+<%= @description %>
+<% end %>
