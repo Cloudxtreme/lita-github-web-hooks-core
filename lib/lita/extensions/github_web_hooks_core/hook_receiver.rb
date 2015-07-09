@@ -16,7 +16,7 @@ module Lita
         private
 
         def event_class_from_request(request)
-          GitHubWebHooks.hooks[event_type_from_request(request)]
+          Configuration.hooks[event_type_from_request(request)]
         end
 
         def event_type_from_request(request)
