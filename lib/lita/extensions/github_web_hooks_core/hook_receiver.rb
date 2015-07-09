@@ -2,12 +2,18 @@ module Lita
   module Extensions
     module GitHubWebHooksCore
       class HookReceiver < Handler
+        
+        def logger
+          Lita.logger
+        end
 
         def receive_hook(request, response)
+          logger.info("Received webhook")
           if valid?(request)
             event_class = event_class_from_request(request)
+            logger.info("Valid #{event_class} hook")
             payload = extract_payload(request)
-            event_class.new(robot, payload).call
+            event_class.new(robot, payload)
           end
 
           response.status = 202
@@ -64,7 +70,7 @@ module Lita
           ip = request.ip
 
           validity = github_cidrs.any? do |cidr|
-            NetAddr::CIDR.create(cidr).contains?(ip)
+            ::NetAddr::CIDR.create(cidr).contains?(ip)
           end
 
           Lita.logger.warn("GitHub web hook received from invalid IP: #{ip}") unless validity

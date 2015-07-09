@@ -17,8 +17,17 @@ module Lita
           end
 
           def add_listener(listener_class)
+            Lita.logger.info("Registered #{listener_class} as a webhooks listener.")
             (@listeners ||= []) << listener_class
           end
+          
+          def self.clear_listeners
+            @listeners = []
+          end
+      
+          def self.listeners_registered?
+            @listeners.any?
+          end          
         
         end        
           
@@ -41,7 +50,8 @@ module Lita
         end
                 
         def self.for(listener)
-          config.select{ |stanza| Configuration.new(stanza, listener).matches? }
+          logger.info("Searching configurations for #{listener.class.name}")
+          config.select{ |stanza| self.new(stanza, listener).matches? }
         end
       
         def initialize(stanza, listener)
@@ -58,7 +68,7 @@ module Lita
         end
           
         def right_type
-          @listener.hook.event_type.to_s == @listener.event_type.to_s
+          @listener.event_type == :all || @listener.hook.event_type.to_s == @listener.event_type.to_s
         end
       
         def excluded?

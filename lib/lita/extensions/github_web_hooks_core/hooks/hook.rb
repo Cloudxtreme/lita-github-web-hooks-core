@@ -9,16 +9,15 @@ module Lita::Extensions
         self.class.notify(self)
       end
       
-      @@listeners = []
+
       
       def self.logger
         Lita.logger
       end
               
       def self.notify(instance)
-        logger.debug { "Notifying listeners of #{instance.class.name} event for #{instance.repo}." }
-        @@listeners ||= []
-        @@listeners.map{ |l| 
+        logger.info { "Notifying listeners of #{instance.event_type} event for #{instance.repo}." }
+        Lita::Extensions::GitHubWebHooksCore::Configuration.listeners.map{ |l|
           listener = l.new(instance)
           # Hook defines #call, we're calling a
           # BaseListener descendant
