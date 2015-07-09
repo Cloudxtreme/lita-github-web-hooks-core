@@ -74,7 +74,7 @@ module Lita::Extensions
       def self.template_root
         "templates"
       end
-                    
+                          
       # FIXME: This is a dupe of a method on Handler::Common, not great.
       def render_template(template_name, variables={})
         Lita::Template.from_file(file_for_template(template_name)).render(variables)

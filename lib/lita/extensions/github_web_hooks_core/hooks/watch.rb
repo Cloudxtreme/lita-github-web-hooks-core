@@ -2,27 +2,19 @@ module Lita::Extensions
   module GitHubWebHooksCore
     module Hooks
       class Watch < Hook
-        private
-
-        def message
-          @message ||= I18n.t(
-          "lita.handlers.github_web_hooks.watch",
-          user: user,
-          repo: repo,
-          stargazers_count: stargazers_count
-          )
-        end
-
-        def repo
-          payload["repository"]["full_name"]
-        end
-
-        def stargazers_count
-          payload["repository"]["stargazers_count"]
-        end
+        
+        include Lita::Extensions::GitHubWebHooksCore::Hooks::RepoHooks        
 
         def user
           payload["sender"]["login"]
+        end
+        
+        def attributes
+          {
+            user: user,
+            repository: repository,
+            repo: repo
+          }
         end
       end
     end

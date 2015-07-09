@@ -50,6 +50,11 @@ module Lita::Extensions
               tr("-", "_").
               downcase   
       end
+      
+      def attributes
+        {payload: payload}
+      end
+      
     end
   end
 end

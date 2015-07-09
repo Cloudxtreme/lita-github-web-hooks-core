@@ -24,6 +24,7 @@ Listeners are used to react to hooks.  Users of this extension will register lis
 1. Define a listener, choosing which listener class to inherit from.
 1. Override the act method in a manner of your choosing, making sure to write a test!
 1. Register each listener class that you'd like to activate with the Configuration object
+1. If you want your plugin to speak, copy the templates or provide your own.  If you don't, ensure your listeners overwrite speak.
 
 ## Configuration
 

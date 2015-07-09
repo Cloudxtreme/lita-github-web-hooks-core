@@ -18,13 +18,20 @@ module Lita::Extensions
         def comment
           payload["comment"]
         end
+        
+        def commit_id
+          comment["commit_id"]
+        end
       
         def attributes
           {
             commenter: commenter,
+            commit_id: commit_id,
             url: url,
             body: body,
-            comment: comment
+            comment: comment,
+            repository: repository,
+            repo: repo
           }
         end
         
