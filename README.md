@@ -20,9 +20,10 @@ Listeners are used to react to hooks.  Users of this extension will register lis
 
 ## Usage
 
+1. Subclass the HookReceiver Handler class to create something you can mount at a path with http.post and register with Lita
 1. Define a listener, choosing which listener class to inherit from.
 1. Override the act method in a manner of your choosing, making sure to write a test!
-1. Register your listener with the configuration object
+1. Register each listener class that you'd like to activate with the Configuration object
 
 ## Configuration
 

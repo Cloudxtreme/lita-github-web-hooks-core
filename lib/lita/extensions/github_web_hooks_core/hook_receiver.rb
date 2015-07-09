@@ -1,7 +1,7 @@
 module Lita
   module Extensions
     module GitHubWebHooksCore
-      class HookReceiver
+      class HookReceiver < Handler
 
         def receive_hook(request, response)
           if valid?(request)
