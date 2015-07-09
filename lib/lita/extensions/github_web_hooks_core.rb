@@ -12,5 +12,6 @@ module Lita
   end
 end
 
+require "lita/extensions/github_web_hooks_core/hook_receiver"
 require "lita/extensions/github_web_hooks_core/hooks"
 require "lita/extensions/github_web_hooks_core/listeners"

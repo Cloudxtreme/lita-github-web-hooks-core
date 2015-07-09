@@ -1,8 +1,8 @@
 module Lita::Extensions
   module GitHubWebHooksCore::Listeners
-    class DeploymentListener < BaseListener
+    class WatchListener < BaseListener
           
-      event_type :deployment
+      event_type :watch
       
     end
   end

@@ -1,8 +1,8 @@
 module Lita::Extensions
   module GitHubWebHooksCore::Listeners
-    class DeploymentListener < BaseListener
+    class ForkListener < BaseListener
           
-      event_type :deployment
+      event_type :fork
       
     end
   end

@@ -1,13 +1,9 @@
-module Lita
-  module Extensions
-    module GitHubWebHooksCore
-      module Listeners
-        class StatusListener < BaseListener
+module Lita::Extensions
+  module GitHubWebHooksCore::Listeners
+    class StatusListener < BaseListener
           
-          event_type :status
+      event_type :status
       
-        end
-      end
     end
   end
 end
