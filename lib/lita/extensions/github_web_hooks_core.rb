@@ -1,4 +1,5 @@
 require "lita/extensions/github_web_hooks_core/configuration"
+require "lita/extensions/github_web_hooks_core/configurator"
 
 module Lita
   module Extensions
