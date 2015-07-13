@@ -7,7 +7,7 @@ module Lita
           config_path = payload[:config_path]
           Lita.logger.info(config_path)
           Configuration.read("listeners.yml")
-          Lita.logger.info(Configuration.config.inspect)
+          Lita.logger.debug(Configuration.config.inspect)
         end
       end
       Lita.register_hook(:config_finalized, Configurator)

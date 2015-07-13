@@ -25,21 +25,7 @@ module Lita::Extensions
           listener.call if listener.listening?
         }
       end
-      
-      def self.add_listener(listener_class)
-        logger.info("Registering listener #{listener_class}")
-        @@listeners ||= []
-        @@listeners << listener_class
-      end
-      
-      def self.clear_listeners
-        @@listeners = []
-      end
-      
-      def self.listeners_registered?
-        @@listeners.any?
-      end
-      
+            
       def event_type
         # FIXME: This should ideally be reciprocal when registering the hook.
         # Better than copying from activesupport

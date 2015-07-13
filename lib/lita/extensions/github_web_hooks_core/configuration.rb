@@ -21,11 +21,11 @@ module Lita
             (@listeners ||= []) << listener_class
           end
           
-          def self.clear_listeners
+          def clear_listeners
             @listeners = []
           end
       
-          def self.listeners_registered?
+          def listeners_registered?
             @listeners.any?
           end          
         
@@ -50,7 +50,7 @@ module Lita
         end
                 
         def self.for(listener)
-          logger.info("Searching configurations for #{listener.class.name}")
+          logger.debug("Searching configurations for #{listener.class.name}")
           config.select{ |stanza| self.new(stanza, listener).matches? }
         end
       

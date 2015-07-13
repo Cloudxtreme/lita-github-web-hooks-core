@@ -25,9 +25,9 @@ module Lita::Extensions
       end
     
       def listening?
-        logger.info { "Determining if #{self.class.name} is listening to an event on #{self.hook.repo}" }
+        logger.debug { "Determining if #{self.class.name} is listening to an event on #{self.hook.repo}" }
         if configurations.any?
-          logger.info("#{self.class.name} is listening to an event on #{self.hook.repo}.")
+          logger.degug("#{self.class.name} is listening to an event on #{self.hook.repo}.")
           true
         end
       end
@@ -40,7 +40,7 @@ module Lita::Extensions
         rooms = configurations.collect{ |c|
           c["notify"]
         }.flatten.sort.uniq
-        logger.info(" #{rooms.size} room(s) will receive a message")
+        logger.debug(" #{rooms.size} room(s) will receive a message")
         rooms
       end
           
@@ -54,11 +54,11 @@ module Lita::Extensions
       end
           
       def act
-        logger.info("#{self.class.name} may act.")
+        logger.debug("#{self.class.name} may act.")
       end
           
       def speak
-        logger.info("#{self.class.name} may speak.")
+        logger.debug("#{self.class.name} may speak.")
         # It feels like the listener should have more of Lita's guts in it.
         # The hook's robot?  The render template below?
         sources.map{ |s| hook.robot.send_message(s, message) }

@@ -8,10 +8,10 @@ module Lita
         end
 
         def receive_hook(request, response)
-          logger.info("Received webhook")
+          logger.debug("Received webhook")
           if valid?(request)
             event_class = event_class_from_request(request)
-            logger.info("Valid #{event_class} hook")
+            logger.debug("Valid #{event_class} hook")
             payload = extract_payload(request)
             event_class.new(robot, payload)
           end
