@@ -22,6 +22,10 @@ module Lita::Extensions
         def url
           pr["html_url"]
         end
+        
+        def ref
+          pr["head"]["ref"]
+        end
       
         def attributes
           {requester: requester,

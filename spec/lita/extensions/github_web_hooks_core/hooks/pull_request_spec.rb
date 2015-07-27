@@ -21,6 +21,9 @@ module Lita::Extensions::GitHubWebHooksCore::Hooks
       it "should gather information about the repo" do
         expect(subject.repo).not_to be_nil
       end
+      it "should gather information about the ref" do
+        expect(subject.ref).not_to be_nil
+      end      
     end
   
   end
