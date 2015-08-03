@@ -23,7 +23,11 @@ module Lita::Extensions::GitHubWebHooksCore::Hooks
       end
       it "should gather information about the ref" do
         expect(subject.ref).not_to be_nil
-      end      
+      end
+      it "should expose the performed action" do
+        expect(subject.action).not_to be_nil
+      end
+       
     end
   
   end

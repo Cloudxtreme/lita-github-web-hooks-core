@@ -26,6 +26,18 @@ module Lita::Extensions
         def ref
           pr["head"]["ref"]
         end
+        
+        def action
+          payload["action"]
+        end
+        
+        def opened?
+          action == "opened"
+        end
+        
+        def synchronized?
+          action == "synchronize"          
+        end
       
         def attributes
           {requester: requester,
