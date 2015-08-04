@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 module Lita::Extensions::GitHubWebHooksCore::Hooks
-  describe PullRequest, lita: true do
+  describe PullRequest do
   
     let(:payload){ fixture_file("issue_comment") }
-    let(:robot){ Lita::Robot.new(registry) }
   
-    subject{ IssueComment.new(robot, payload) }
+    subject{ IssueComment.new(payload) }
   
     context "data collection" do
       it "should supply commenter" do

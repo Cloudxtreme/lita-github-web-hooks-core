@@ -31,6 +31,5 @@ module Lita::Extensions
         end
       end
     end
-    Configuration.register_hook("issues", GitHubWebHooksCore::Hooks::Issues)
   end
 end

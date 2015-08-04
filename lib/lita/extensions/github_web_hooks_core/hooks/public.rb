@@ -10,6 +10,5 @@ module Lita::Extensions
         end        
       end
     end
-    Configuration.register_hook("public", GitHubWebHooksCore::Hooks::Public)
   end
 end

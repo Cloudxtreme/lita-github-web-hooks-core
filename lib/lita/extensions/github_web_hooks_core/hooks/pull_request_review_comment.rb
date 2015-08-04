@@ -65,6 +65,5 @@ module Lita::Extensions
         end
       end
     end
-    Configuration.register_hook("pull_request_review_comment", GitHubWebHooksCore::Hooks::PullRequestReviewComment)
   end
 end

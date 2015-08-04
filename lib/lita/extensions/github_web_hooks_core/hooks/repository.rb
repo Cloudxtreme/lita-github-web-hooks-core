@@ -15,6 +15,5 @@ module Lita::Extensions
         end
       end
     end
-    Configuration.register_hook("repository", GitHubWebHooksCore::Hooks::Repository)
   end
 end

@@ -37,6 +37,5 @@ module Lita::Extensions
         
       end
     end
-    Configuration.register_hook("commit_comment", GitHubWebHooksCore::Hooks::CommitComment)
   end
 end

@@ -23,6 +23,5 @@ module Lita::Extensions
         end
       end
     end
-    Configuration.register_hook("create", GitHubWebHooksCore::Hooks::Create)
   end
 end

@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 module Lita::Extensions::GitHubWebHooksCore::Hooks
-  describe PullRequestReviewComment, lita: true do
+  describe PullRequestReviewComment do
   
     let(:payload){ fixture_file("pull_request_review_comment") }
-    let(:robot){ Lita::Robot.new(registry) }
   
-    subject{ PullRequestReviewComment.new(robot, payload) }
+    subject{ PullRequestReviewComment.new(payload) }
   
     context "data collection" do
       it "should gather information on originator" do

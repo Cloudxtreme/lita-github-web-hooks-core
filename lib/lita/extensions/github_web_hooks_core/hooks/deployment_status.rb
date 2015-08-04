@@ -50,6 +50,5 @@ module Lita::Extensions
         end
       end
     end
-    Configuration.register_hook("deployment_status", GitHubWebHooksCore::Hooks::DeploymentStatus)
   end
 end

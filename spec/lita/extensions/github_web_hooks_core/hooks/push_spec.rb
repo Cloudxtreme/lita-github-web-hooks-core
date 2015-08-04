@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 module Lita::Extensions::GitHubWebHooksCore::Hooks
-  describe Push, lita: true do
+  describe Push do
   
     let(:payload){ fixture_file("push") }
-    let(:robot){ Lita::Robot.new(registry) }
   
-    subject{ Push.new(robot, payload) }
+    subject{ Push.new(payload) }
   
     context "data collection" do
       it "should gather committer" do

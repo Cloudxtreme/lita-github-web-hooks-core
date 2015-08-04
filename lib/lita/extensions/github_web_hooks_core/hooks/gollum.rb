@@ -23,7 +23,5 @@ module Lita::Extensions
         end
       end
     end
-
-    Configuration.register_hook("gollum", GitHubWebHooksCore::Hooks::Gollum)
   end
 end

@@ -1,6 +1,4 @@
 require "netaddr"
-require "lita/extensions/github_web_hooks_core/configuration"
-require "lita/extensions/github_web_hooks_core/configurator"
 
 module Lita
   module Extensions
@@ -16,4 +14,3 @@ end
 
 require "lita/extensions/github_web_hooks_core/hook_receiver"
 require "lita/extensions/github_web_hooks_core/hooks"
-require "lita/extensions/github_web_hooks_core/listeners"

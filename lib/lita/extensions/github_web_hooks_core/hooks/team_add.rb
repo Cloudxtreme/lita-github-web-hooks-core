@@ -19,6 +19,5 @@ module Lita::Extensions
         end
       end
     end
-    Configuration.register_hook("team_add", GitHubWebHooksCore::Hooks::TeamAdd)
   end
 end

@@ -13,6 +13,5 @@ module Lita::Extensions
         end
       end
     end
-    Configuration.register_hook("ping", GitHubWebHooksCore::Hooks::Ping)
   end
 end

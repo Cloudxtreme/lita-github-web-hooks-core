@@ -4,7 +4,5 @@ module Lita::Extensions
       class Follow < Hook
       end
     end
-
-    Configuration.register_hook("follow", GitHubWebHooksCore::Hooks::Follow)
   end
 end

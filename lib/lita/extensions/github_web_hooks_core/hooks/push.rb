@@ -39,7 +39,5 @@ module Lita::Extensions
 
       end
     end
-
-    Configuration.register_hook("push", GitHubWebHooksCore::Hooks::Push)
   end
 end

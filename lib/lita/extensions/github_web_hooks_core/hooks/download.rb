@@ -4,6 +4,5 @@ module Lita::Extensions
       class Download < Hook
       end
     end
-    Configuration.register_hook("download", GitHubWebHooksCore::Hooks::Download)
   end
 end

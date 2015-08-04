@@ -49,6 +49,5 @@ module Lita::Extensions
         end  
       end
     end
-    Configuration.register_hook("pull_request", GitHubWebHooksCore::Hooks::PullRequest)
   end
 end

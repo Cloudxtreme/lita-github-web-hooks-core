@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 module Lita::Extensions::GitHubWebHooksCore::Hooks
-  describe Status, lita: true do
+  describe Status do
   
     let(:payload){ fixture_file("status") }
-    let(:robot){ Lita::Robot.new(registry) }
   
-    subject{ Status.new(robot, payload) }
+    subject{ Status.new(payload) }
   
     context "data collection" do
       it "should supply status" do

@@ -21,6 +21,5 @@ module Lita::Extensions
         end        
       end
     end
-    Configuration.register_hook("fork", GitHubWebHooksCore::Hooks::Fork)
   end
 end

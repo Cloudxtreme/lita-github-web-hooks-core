@@ -15,6 +15,5 @@ module Lita::Extensions
         end
       end
     end
-    Configuration.register_hook("page_build", GitHubWebHooksCore::Hooks::PageBuild)
   end
 end

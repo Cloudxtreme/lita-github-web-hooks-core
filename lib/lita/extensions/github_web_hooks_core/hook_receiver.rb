@@ -8,22 +8,17 @@ module Lita
         end
 
         def receive_hook(request, response)
-          logger.debug("Received webhook")
+          event_type = event_type_from_request(request)
+          logger.debug("Received #{event_type} webhook")
           if valid?(request)
-            event_class = event_class_from_request(request)
-            logger.debug("Valid #{event_class} hook")
             payload = extract_payload(request)
-            event_class.new(robot, payload)
+            robot.trigger(event_type, payload.merge(event_type: event_type))
           end
 
           response.status = 202
         end
 
         private
-
-        def event_class_from_request(request)
-          Configuration.hooks[event_type_from_request(request)]
-        end
 
         def event_type_from_request(request)
           request.env["HTTP_X_GITHUB_EVENT"]
@@ -47,21 +42,13 @@ module Lita
         end
 
         def valid?(request)
-          valid_event_type?(request) && valid_ip?(request)
+          valid_content_type?(request) && valid_ip?(request)
         end
 
         def valid_content_type?(request)
           validity = request.media_type == "application/json"
           Lita.logger.warn(
             "GitHub web hook received with invalid media type: #{request.media_type}"
-          ) unless validity
-          validity
-        end
-
-        def valid_event_type?(request)
-          validity = !event_class_from_request(request).nil?
-          Lita.logger.warn(
-            "GitHub web hook received with invalid event: #{event_type_from_request(request)}"
           ) unless validity
           validity
         end

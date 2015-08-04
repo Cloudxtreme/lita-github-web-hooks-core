@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 module Lita::Extensions::GitHubWebHooksCore::Hooks
-  describe Deployment, lita: true do
+  describe Deployment do
   
     let(:payload){ fixture_file("deployment") }
-    let(:robot){ Lita::Robot.new(registry) }
   
-    subject{ Deployment.new(robot, payload) }
+    subject{ Deployment.new(payload) }
   
     context "data collection" do
       it "should supply SHA" do
