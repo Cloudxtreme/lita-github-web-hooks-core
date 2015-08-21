@@ -1,3 +1,4 @@
+require 'octokit'
 require "netaddr"
 
 module Lita

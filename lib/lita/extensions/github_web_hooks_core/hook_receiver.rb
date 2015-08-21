@@ -55,9 +55,10 @@ module Lita
 
         def valid_ip?(request)
           ip = request.ip
-
+          cidrs = github_cidrs || []
+          
           # FIXME: github_cidrs has been null in prod?
-          validity = github_cidrs.any? do |cidr|
+          validity = cidrs.any? do |cidr|
             ::NetAddr::CIDR.create(cidr).contains?(ip)
           end
 

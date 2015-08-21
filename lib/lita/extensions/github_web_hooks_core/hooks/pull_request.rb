@@ -22,7 +22,7 @@ module Lita::Extensions
         def target_branch
           pr["base"]["label"].split(":").last
         end
-      
+              
         def candidate_branch
           pr["head"]["label"].split(":").last
         end
@@ -33,6 +33,10 @@ module Lita::Extensions
         
         def ref
           pr["head"]["ref"]
+        end
+        
+        def sha
+          pr["head"]["sha"]
         end
         
         def action
@@ -62,6 +66,12 @@ module Lita::Extensions
             candidate_branch: candidate_branch,
             url: url
           }
+        end
+        
+        def set_status(status, options={})
+          return if status.nil? || options[:target_url].nil?
+          options[:context] ||= "lita"
+          client.create_status(self.repo, self.sha, status, options)
         end
         
         def to_s
