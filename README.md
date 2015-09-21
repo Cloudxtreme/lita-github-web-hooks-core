@@ -18,21 +18,20 @@ And then execute:
 
 ## Hooks and Listeners
 
-A Hook is intended to capture a WebHook event from GitHub.  There is only one kind of Hook per GitHub API event type.
+A Hook is intended to capture a WebHook event from GitHub.  There is only one kind of Hook per GitHub API event type.  This extension takes events from the HTTP Post mechanism of interacting with Lita and publishes them on the event mechanism inside lita.  It also provides a collection of data-transfer objects designed to facilitate working with the payloads that GitHub sends along with the webhooks in question within your own plugins.
 
-Listeners are used to react to hooks.  Users of this extension will register listeners that they write with a configuration object to make them eligible for receiving hooks.  A Hook can be heard by any number of listeners.  Listeners can be configured to share their information in any number of rooms.  The listeners are designed to be extended by handler developers to take specific actions that may be relevant.  For example, receipt of a deployment message might query a statistics API to publish performance metrics about the deployment just concluded.  Let your imagination be your guide!
+For example, receipt of a deployment message might query a statistics API to publish performance metrics about the deployment that's being retired.  Tagging a pull request event might trigger a GitHub status update, or a prompt within your chat room for someone to review it.  Let your imagination be your guide!
 
 ## Usage
 
 1. Subclass the HookReceiver Handler class to create something you can mount at a path with http.post and register with Lita
-1. Define a listener, choosing which listener class to inherit from.
-1. Override the act method in a manner of your choosing, making sure to write a test!
-1. Register each listener class that you'd like to activate with the Configuration object
-1. If you want your plugin to speak, copy the templates or provide your own.  If you don't, ensure your listeners overwrite speak.
+1. Define a listening, specifying which events you'd want to subscribe to.
+1. Register that listener as a Lita handler.  It's convenient!
+1. If you want your plugin to speak, copy the templates or provide your own.
 
 ## Configuration
 
-In the chatbot itself, where your own users will be interacting with the bot, the listeners will need to be configured.  Listeners can listen only to particular events, or all events.  Each particular repository will need to be configured separately at this time (PR's accepted).  A repository can have only certain types of events triggered, or can exclude specific types of events.
+In the chatbot itself, where your own users will be interacting with the bot, the listeners will need to be configured.  Listeners can listen only to particular events, or all events.
 
 ## Development
 
