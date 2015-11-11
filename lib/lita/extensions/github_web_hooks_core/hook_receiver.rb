@@ -2,7 +2,7 @@ module Lita
   module Extensions
     module GitHubWebHooksCore
       class HookReceiver < Handler
-        
+
         def logger
           Lita.logger
         end
@@ -56,8 +56,9 @@ module Lita
         def valid_ip?(request)
           ip = request.ip
           cidrs = github_cidrs || [ "192.30.252.0/22" ]
-          
+
           # FIXME: github_cidrs has been null in prod?
+          # FIXME: this behaves poorly behind a NAT firewall, allow a whitelist
           validity = cidrs.any? do |cidr|
             ::NetAddr::CIDR.create(cidr).contains?(ip)
           end
