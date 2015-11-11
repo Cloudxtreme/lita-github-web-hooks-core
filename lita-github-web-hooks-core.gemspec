@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["jim.van.fleet@levvel.io"]
   spec.description   = "First-class support for GitHub web hooks in Lita"
   spec.summary       = "Lita extension to expose GitHub Web Hook events for use in your own handlers"
-  spec.homepage      = "TODO: Add a homepage"
+  spec.homepage      = "https://github.com/GetLevvel/lita-github-web-hooks-core"
   spec.license       = "MIT"
   spec.metadata      = { "lita_plugin_type" => "extension" }
 
