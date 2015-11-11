@@ -1,8 +1,10 @@
 # Lita::Github::WebHooks::Core
 
-This Lita extension is designed to empower your chatbot with full knowledge of GitHub Web Hooks.
+Lita and GitHub web hooks are two great tastes that taste great together.
 
-Installing this extension in your lita bot will not change its behavior.  Extensions are designed to enable handlers, and this one is no exception.  A simple example handler demonstrates how easy it can be to get up and running with GitHub Web Hooks in your own bot.  The bot is trained to speak in English already, and can be made to speak any other language by providing a locale.
+This extension is designed to make using GitHub web hooks as easy as possible in your own handlers.  You may be familiar with the [three types of events](http://docs.lita.io/plugin-authoring/handlers/) Lita supports.  In short, this extension transforms raw data arriving via the [HTTP routing](http://docs.lita.io/plugin-authoring/handlers/#http-routes) system, and publishes a Ruby object (including the original payload) for consumption via an [event route](http://docs.lita.io/plugin-authoring/handlers/#event-routes).  This way, with a simple ```on``` declaration in your handler, you've got the power of the GitHub and Lita at your fingertips.
+
+Installing this extension in your lita bot will not change its behavior.  Extensions are designed to enable handlers, and this one is no exception.  A [simple example handler](https://github.com/GetLevvel/lita-github-web-hooks-storer) demonstrates how easy it can be to get up and running with GitHub Web Hooks in your own bot.
 
 ## Installation
 
@@ -18,16 +20,20 @@ And then execute:
 
 ## Hooks and Listeners
 
-A Hook is intended to capture a WebHook event from GitHub.  There is only one kind of Hook per GitHub API event type.  This extension takes events from the HTTP Post mechanism of interacting with Lita and publishes them on the event mechanism inside lita.  It also provides a collection of data-transfer objects designed to facilitate working with the payloads that GitHub sends along with the webhooks in question within your own plugins.
+A Hook is intended to capture a [Webhook event from GitHub](https://developer.github.com/webhooks/).  There is only one kind of Hook per GitHub API event type.  This extension takes events from the HTTP Post mechanism of interacting with Lita and publishes them on the event mechanism inside lita.  It also provides a collection of data-transfer objects designed to facilitate working with the payloads that GitHub sends along with the webhooks in question within your own plugins.
 
-For example, receipt of a deployment message might query a statistics API to publish performance metrics about the deployment that's being retired.  Tagging a pull request event might trigger a GitHub status update, or a prompt within your chat room for someone to review it.  Let your imagination be your guide!
+For example, receipt of a deployment message might query a statistics API to publish performance metrics about the deployment that's being retired.  Tagging a pull request event might trigger a GitHub status update, or a prompt within your chat room for someone to review it.  Want to use [atmos/heaven](https://github.com/atmos/heaven), but have a coffeescript allergy?  This is a great starting place.  Let your imagination be your guide!
 
 ## Usage
 
 1. Subclass the HookReceiver Handler class to create something you can mount at a path with http.post and register with Lita
-1. Define a listening, specifying which events you'd want to subscribe to.
-1. Register that listener as a Lita handler.  It's convenient!
-1. If you want your plugin to speak, copy the templates or provide your own.
+1. Define a listener, specifying which events you'd want to subscribe to.
+1. Register that listener as a Lita handler.
+
+A [step-by-step walkthrough](https://github.com/GetLevvel/lita-github-web-hooks-storer/blob/master/docs/handler-walkthrough.md)
+ is available at [our example handler](https://github.com/GetLevvel/lita-github-web-hooks-storer/).
+
+
 
 ## Configuration
 
@@ -41,7 +47,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/lita-github-web-hooks-core. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/GetLevvel/lita-github-web-hooks-core. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License

@@ -8,19 +8,11 @@ Gem::Specification.new do |spec|
   spec.version       = Lita::Github::WebHooks::Core::VERSION
   spec.authors       = ["Jim Van Fleet"]
   spec.email         = ["jim.van.fleet@levvel.io"]
-  spec.description   = "First-class support for acting and sharing GitHub web hook activity for Lita"
-  spec.summary       = "Lita Extension to leverage GitHub Web Hooks in your own handlers"
+  spec.description   = "First-class support for GitHub web hooks in Lita"
+  spec.summary       = "Lita extension to expose GitHub Web Hook events for use in your own handlers"
   spec.homepage      = "TODO: Add a homepage"
   spec.license       = "MIT"
   spec.metadata      = { "lita_plugin_type" => "extension" }
-
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
@@ -30,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "netaddr", '~> 1.5', '>= 1.5.0'
   spec.add_runtime_dependency "i18n", '~> 0.6', '>= 0.6.9'
   spec.add_runtime_dependency "octokit", '~> 4.0', '>= 4.0.1'
-  
+
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "pry-byebug"
