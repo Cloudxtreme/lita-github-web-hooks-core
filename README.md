@@ -1,5 +1,7 @@
 # Lita::Github::WebHooks::Core
 
+![Travis badge](https://travis-ci.org/GetLevvel/lita-github-web-hooks-core.svg)
+
 Lita and GitHub web hooks are two great tastes that taste great together.
 
 This extension is designed to make using GitHub web hooks as easy as possible in your own handlers.  You may be familiar with the [three types of events](http://docs.lita.io/plugin-authoring/handlers/) Lita supports.  In short, this extension transforms raw data arriving via the [HTTP routing](http://docs.lita.io/plugin-authoring/handlers/#http-routes) system, and publishes a Ruby object (including the original payload) for consumption via an [event route](http://docs.lita.io/plugin-authoring/handlers/#event-routes).  This way, with a simple ```on``` declaration in your handler, you've got the power of the GitHub and Lita at your fingertips.
