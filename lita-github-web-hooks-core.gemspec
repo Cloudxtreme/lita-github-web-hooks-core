@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.description   = "First-class support for GitHub web hooks in Lita"
   spec.summary       = "Lita extension to expose GitHub Web Hook events for use in your own handlers"
   spec.homepage      = "https://github.com/GetLevvel/lita-github-web-hooks-core"
-  spec.license       = "MIT"
+  spec.license       = "Apache 2.0"
   spec.metadata      = { "lita_plugin_type" => "extension" }
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
