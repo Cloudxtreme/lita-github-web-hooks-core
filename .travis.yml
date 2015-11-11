@@ -5,3 +5,4 @@ rvm:
 before_install: gem install bundler -v 1.10.6
 services:
   - redis-server
+cache: bundler
